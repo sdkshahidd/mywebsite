@@ -1,0 +1,261 @@
+body {
+  background-color: #21292b;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Menu Bar */
+.menu-bar {
+  background-color: #21292b;
+  border-bottom: 2px solid #e7e7e7;
+}
+
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.menu li {
+  display: inline-block;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  padding: 15px 25px;
+  display: inline-block;
+  border-right: 1px solid #ddd;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu a:hover, .menu a:focus {
+  background-color: #007bff;
+  color: white;
+  outline: none;
+}
+
+.menu a:last-child {
+  border-right: none;
+}
+
+/* Slider */
+.slider {
+  overflow: hidden;
+  width: 100%;
+  height: 400px;
+  position: relative;
+  background-size: cover;
+}
+
+.slider .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  animation: slider 12.5s infinite;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+}
+
+@keyframes slider {
+  0%, 16%, 100% {
+      transform: translateX(0);
+  }
+  20% {
+      transform: translateX(-100%);
+  }
+  96% {
+      transform: translateX(100%);
+  }
+}
+
+/* Information */
+#info {
+  margin-top: -20px;
+  color: white;
+  font-size: 20px;
+  font-family: cursive;
+}
+
+/* Service Box */
+.container {
+  width: 100%;
+  max-width: 1170px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+.title {
+  display: block;
+  text-align: center;
+  color: white;
+  margin-bottom: 50px;
+}
+
+.title h2 {
+  font-size: 45px;
+  border-bottom: 3px solid #e9ac01;
+  width: 250px;
+  display: block;
+  margin: auto;
+}
+
+.main-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.ser-box {
+  width: 29%;
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.ser-box:hover {
+  background: #e9ac01;
+}
+
+.ser-box h3 {
+  width: 150px;
+  margin: auto;
+  color: #e9ac01;
+  border-bottom: 2px solid #e9ac01;
+}
+
+.ser-box p {
+  background: black;
+  color: white;
+}
+
+.img img {
+  max-width: 120px;
+  border-radius: 50%;
+  border: 3px solid #e9ac01;
+  margin-bottom: 10px;
+}
+
+.ser-box:hover .img img {
+  border: 3px solid white;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .menu li {
+      display: block;
+      margin: 10px 0;
+  }
+
+  .slider {
+      height: 300px;
+  }
+
+  .main-box {
+      display: block;
+  }
+
+  .ser-box {
+      width: 100%;
+      margin: 10px 0;
+  }
+
+  .title h2 {
+      font-size: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu a {
+      padding: 10px 15px;
+  }
+
+  .slider {
+      height: 250px;
+  }
+
+  .title h2 {
+      font-size: 30px;
+  }
+
+  .ser-box {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+  }
+
+  .container {
+      padding: 0 10px;
+  }
+
+  .ser-box h3 {
+      font-size: 18px;
+  }
+}
+
+#addph, #addphb, #addphc {
+  width: 15%;
+  background: black;
+  color: #96c1ee;
+  text-align: center;
+  padding: 10px;
+  display: inline-block;
+  margin-top: 10px;
+  border-radius: 5px;
+  height: 100px;
+}
+
+#addph:hover, #addphb:hover, #addphc:hover {
+  background-color: #2c8ef7;
+  color: black;
+  transition: background-color 0.20s ease, color 0.10s ease;
+}
+
+#lastpart {
+  width: 150px;
+  height: 500px;
+  background-color: black;
+  margin-top: 100px;
+}
+/* Slider */
+.slider {
+  overflow: hidden;
+  width: 100%;
+  height: 400px;
+  position: relative;
+  background-size: cover;
+}
+
+.slider .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  animation: slider 12.5s infinite;
+  object-fit: cover; /* Ensures image covers the entire slide */
+}
+
+@keyframes slider {
+  0%, 16%, 100% {
+      transform: translateX(0);
+  }
+  20% {
+      transform: translateX(-100%);
+  }
+  96% {
+      transform: translateX(100%);
+  }
+}
