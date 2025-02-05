@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #f5f5dc, #e6e6fa); /* Beige to Lavender */
+    margin: 0;
+}
+
+form {
+    background: linear-gradient(to right, #ffffff, #f5f5dc); /* White to Beige */
+
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    width: 100%;
+    max-width: 400px;
+    
+}
+
+
+        label {
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .radio-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        #done {
+            color: green;
+            font-weight: bold;
+        }
+        .radio-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.radio-group input[type="radio"] {
+    margin: 0;
+    width: auto;
+}
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+    </style>
+</head>
+<body>
+    <form name="submit-to-google-sheet">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required>
+        
+        <label for="lname">Last Name</label>
+        <input type="text" name="lname" id="lname" required>
+        
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+        
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+        
+        <div class="checkbox-container">
+            <input type="checkbox" id="show">
+            <label for="show">Show Password</label>
+        </div>
+
+        <div class="radio-group">
+            <input type="radio" name="gender" value="Male" id="mm"> <label for="mm">Male</label>
+            <input type="radio" name="gender" value="Female" id="fm"> <label for="fm">Female</label>
+        </div>
+        
+        <input type="submit" name="submit" id="subn" value="Submit">
+        <span id="done"></span>
+    </form>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwl8w7g75JcPCZGbnxK1mB2FcRkFt8i8sLAJTxsyVmp07NVxe2R4YKZzu8OZKjuRpwc/exec';
+    const form = document.forms['submit-to-google-sheet'];
+    const don = document.getElementById('done');
+  
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+                don.innerHTML = "Form Successfully Submitted!";
+                setTimeout(() => { don.innerHTML = ""; }, 5000);
+                form.reset();
+            })
+            .catch(error => console.error('Error!', error.message));
+    });
+
+    let password = document.getElementById('password');
+    let showps = document.getElementById('show');
+    showps.addEventListener('change', function () {
+        password.type = this.checked ? 'text' : 'password';
+    });
+</script>
+</body>
+</html>
